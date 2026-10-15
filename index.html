@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Hibridaciones Épicas Del Momento - El Equipo Kamikaze</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --font-rock: 'Permanent Marker', cursive;
+            --font-metal: 'Orbitron', sans-serif;
+            --font-tech: 'Rajdhani', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #05020a;
+            color: #f1f5f9;
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(168, 85, 247, 0.28) 0%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(236, 72, 153, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 15% 85%, rgba(59, 130, 246, 0.18) 0%, transparent 45%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .rock-font { font-family: var(--font-rock); }
+        .metal-font { font-family: var(--font-metal); }
+        .tech-font { font-family: var(--font-tech); }
+
+        .title-clamp {
+            font-size: clamp(1.65rem, 4.8vw + 0.5rem, 4.25rem);
+            line-height: 1.1;
+        }
+
+        .heading-clamp {
+            font-size: clamp(1.2rem, 3vw + 0.2rem, 2.2rem);
+        }
+
+        /* Marco metálico violeta con textura cepillada y pernos 3D */
+        .metallic-violet-frame {
+            position: relative;
+            background: linear-gradient(135deg, #190530 0%, #320654 20%, #581c87 40%, #a855f7 50%, #581c87 60%, #320654 80%, #0c0317 100%);
+            border: 3px solid #9333ea;
+            box-shadow: 
+                0 0 35px rgba(168, 85, 247, 0.5),
+                inset 0 0 25px rgba(0, 0, 0, 0.95),
+                inset 0 0 4px 2px rgba(255, 255, 255, 0.35);
+        }
+
+        @media (min-width: 768px) {
+            .metallic-violet-frame {
+                border-width: 6px;
+                box-shadow: 
+                    0 0 50px rgba(168, 85, 247, 0.6),
+                    inset 0 0 35px rgba(0, 0, 0, 0.95),
+                    inset 0 0 6px 2px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .metallic-violet-frame::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.03),
+                rgba(255, 255, 255, 0.03) 2px,
+                transparent 2px,
+                transparent 5px
+            );
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        /* Clavos y Pernos Metálicos 3D */
+        .bolt {
+            width: clamp(14px, 2.2vw, 22px);
+            height: clamp(14px, 2.2vw, 22px);
+            background: radial-gradient(circle at 35% 35%, #ffffff, #94a3b8 50%, #0f172a 100%);
+            border-radius: 50%;
+            box-shadow: 
+                2px 2px 5px rgba(0, 0, 0, 0.9),
+                inset -1px -1px 2px rgba(0,0,0,0.9),
+                inset 1px 1px 2px rgba(255,255,255,0.9);
+            position: absolute;
+            z-index: 25;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bolt::after {
+            content: '';
+            width: 60%;
+            height: 2px;
+            background-color: #1e293b;
+            box-shadow: 0 1px 1px rgba(255,255,255,0.5);
+            transform: rotate(45deg);
+        }
+
+        .bolt-alt::after {
+            transform: rotate(-45deg);
+        }
+
+        .neon-text-purple {
+            text-shadow: 0 0 12px rgba(192, 132, 252, 0.9), 0 0 30px rgba(168, 85, 247, 0.6);
+        }
+
+        .poster-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @media (hover: hover) {
+            .poster-card:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 20px 35px rgba(168, 85, 247, 0.4);
+            }
+        }
+
+        /* Estilos del Carrusel */
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            will-change: transform;
+        }
+
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #9333ea;
+            border-radius: 8px;
+        }
+
+        .touch-btn {
+            min-height: 44px;
+            min-width: 44px;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-2 sm:p-5 md:p-8 lg:p-12 flex flex-col items-center">
+
+    <!-- MARCO METÁLICO VIOLETA PRINCIPAL -->
+    <div class="metallic-violet-frame w-full max-w-7xl rounded-2xl sm:rounded-3xl p-2.5 sm:p-6 md:p-10 lg:p-12 relative my-2 sm:my-4">
+        
+        <!-- Pernos 3D adaptativos -->
+        <div class="bolt top-2.5 left-2.5 sm:top-4 sm:left-4"></div>
+        <div class="bolt bolt-alt top-2.5 right-2.5 sm:top-4 sm:right-4"></div>
+        <div class="bolt bottom-2.5 left-2.5 sm:bottom-4 sm:left-4"></div>
+        <div class="bolt bolt-alt bottom-2.5 right-2.5 sm:bottom-4 sm:right-4"></div>
+        <div class="bolt top-2.5 left-1/2 -translate-x-1/2 hidden sm:flex sm:top-4"></div>
+        <div class="bolt bolt-alt bottom-2.5 left-1/2 -translate-x-1/2 hidden sm:flex sm:bottom-4"></div>
+        <div class="bolt top-1/2 left-2.5 -translate-y-1/2 hidden md:flex sm:left-4"></div>
+        <div class="bolt bolt-alt top-1/2 right-2.5 -translate-y-1/2 hidden md:flex sm:right-4"></div>
+
+        <!-- CONTENIDO INTERNO DE LA PÁGINA -->
+        <div class="bg-slate-950/95 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 md:p-10 border border-purple-900/60 backdrop-blur-md relative z-10">
+
+            <!-- ENCABEZADO Y TÍTULO -->
+            <header class="text-center mb-8 sm:mb-12 border-b-2 border-purple-800/60 pb-6 sm:pb-8 relative">
+                <div class="inline-flex items-center gap-1.5 sm:gap-2 bg-purple-900/60 text-purple-200 px-3 py-1 sm:px-5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-3 border border-purple-500/40 shadow-lg max-w-full">
+                    <i class="fa-solid fa-bolt text-yellow-400 shrink-0"></i> 
+                    <span class="truncate">Química x Rock & Roll Tour 2026</span>
+                    <i class="fa-solid fa-bolt text-yellow-400 shrink-0"></i>
+                </div>
+                
+                <h1 class="rock-font title-clamp text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-400 to-amber-300 neon-text-purple mb-3 px-1">
+                    Hibridaciones Épicas Del Momento
+                </h1>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mt-3">
+                    <span class="text-slate-400 text-xs sm:text-sm md:text-base font-semibold">Producido y Presentado por:</span>
+                    <span class="metal-font text-xs sm:text-base md:text-lg text-yellow-400 font-bold bg-purple-950/90 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-lg border border-amber-500/50 shadow-xl tracking-wider uppercase">
+                        EL EQUIPO KAMIKAZE
+                    </span>
+                </div>
+            </header>
+
+            <!-- SECCIÓN NUEVA: CARRUSEL INTERACTIVO DE ELEMENTOS / MÚSICOS -->
+            <section class="mb-10 sm:mb-14">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 sm:mb-6">
+                    <div class="flex items-center gap-2.5 sm:gap-3">
+                        <i class="fa-solid fa-star text-amber-400 text-xl sm:text-2xl md:text-3xl shrink-0"></i>
+                        <div>
+                            <h2 class="metal-font heading-clamp text-purple-200 font-bold">Artistas Estelares de la Tabla</h2>
+                            <p class="text-xs sm:text-sm text-slate-400">Carrusel interactivo de los elementos esenciales con enlaces científicos externos.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles del carrusel -->
+                    <div class="flex items-center gap-2 self-end md:self-auto">
+                        <button id="prevBtn" onclick="moveCarousel(-1)" class="touch-btn bg-purple-900/80 hover:bg-purple-700 active:scale-95 text-yellow-300 border border-purple-500/50 rounded-xl px-4 py-2 transition shadow-lg flex items-center gap-2 text-xs font-bold">
+                            <i class="fa-solid fa-chevron-left"></i> Anter.
+                        </button>
+                        <button id="nextBtn" onclick="moveCarousel(1)" class="touch-btn bg-purple-900/80 hover:bg-purple-700 active:scale-95 text-yellow-300 border border-purple-500/50 rounded-xl px-4 py-2 transition shadow-lg flex items-center gap-2 text-xs font-bold">
+                            Siguiente <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAROUSEL CONTAINER -->
+                <div class="relative overflow-hidden rounded-2xl bg-slate-900/80 border-2 border-purple-600/50 p-2 sm:p-4 shadow-2xl">
+                    <div id="carouselTrack" class="carousel-track gap-4">
+                        
+                        <!-- TARJETA 1: CARBONO -->
+                        <div class="carousel-card min-w-[280px] sm:min-w-[320px] md:min-w-[340px] bg-slate-950 rounded-xl border border-amber-500/40 p-4 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-bold text-amber-400 bg-amber-950/80 px-2.5 py-1 rounded-md border border-amber-500/30">Z = 6 | Masa: 12.011</span>
+                                    <span class="rock-font text-pink-400 text-sm">Bloque p</span>
+                                </div>
+                                <div class="text-center my-2">
+                                    <div class="w-16 h-16 mx-auto bg-amber-500/20 border-2 border-amber-400 rounded-2xl flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(245,158,11,0.4)]">
+                                        <span class="metal-font text-3xl font-black text-amber-300">C</span>
+                                    </div>
+                                    <h3 class="rock-font text-xl text-yellow-300">Carbono</h3>
+                                    <p class="metal-font text-xs text-purple-300 font-bold">"El Maestro del Rock & Versatilidad"</p>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                                    El pilar de la química orgánica. Capaz de formar hibridaciones $sp, sp^2$ y $sp^3$ para crear estructuras lineales, planas y tridimensionales.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-purple-900/60 flex items-center justify-between gap-2">
+                                <a href="https://pubchem.ncbi.nlm.nih.gov/element/Carbon" target="_blank" rel="noopener noreferrer" class="touch-btn bg-amber-500 hover:bg-amber-400 text-black text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> PubChem
+                                </a>
+                                <button onclick="openModal('modal-elem-c')" class="touch-btn bg-purple-700 hover:bg-purple-600 text-white text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info"></i> Ficha
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 2: HIDRÓGENO -->
+                        <div class="carousel-card min-w-[280px] sm:min-w-[320px] md:min-w-[340px] bg-slate-950 rounded-xl border border-sky-500/40 p-4 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-bold text-sky-400 bg-sky-950/80 px-2.5 py-1 rounded-md border border-sky-500/30">Z = 1 | Masa: 1.008</span>
+                                    <span class="rock-font text-pink-400 text-sm">Bloque s</span>
+                                </div>
+                                <div class="text-center my-2">
+                                    <div class="w-16 h-16 mx-auto bg-sky-500/20 border-2 border-sky-400 rounded-2xl flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(56,189,248,0.4)]">
+                                        <span class="metal-font text-3xl font-black text-sky-300">H</span>
+                                    </div>
+                                    <h3 class="rock-font text-xl text-sky-300">Hidrógeno</h3>
+                                    <p class="metal-font text-xs text-purple-300 font-bold">"El Fan Solitario e Infaltable"</p>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                                    Con solo un electrón en su orbital $1s$, asiste a todos los conciertos acompañando al Carbono en casi todas las moléculas orgánicas.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-purple-900/60 flex items-center justify-between gap-2">
+                                <a href="https://pubchem.ncbi.nlm.nih.gov/element/Hydrogen" target="_blank" rel="noopener noreferrer" class="touch-btn bg-sky-500 hover:bg-sky-400 text-black text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> PubChem
+                                </a>
+                                <button onclick="openModal('modal-elem-h')" class="touch-btn bg-purple-700 hover:bg-purple-600 text-white text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info"></i> Ficha
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 3: NITRÓGENO -->
+                        <div class="carousel-card min-w-[280px] sm:min-w-[320px] md:min-w-[340px] bg-slate-950 rounded-xl border border-purple-500/40 p-4 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-bold text-purple-400 bg-purple-950/80 px-2.5 py-1 rounded-md border border-purple-500/30">Z = 7 | Masa: 14.007</span>
+                                    <span class="rock-font text-pink-400 text-sm">Bloque p</span>
+                                </div>
+                                <div class="text-center my-2">
+                                    <div class="w-16 h-16 mx-auto bg-purple-500/20 border-2 border-purple-400 rounded-2xl flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+                                        <span class="metal-font text-3xl font-black text-purple-300">N</span>
+                                    </div>
+                                    <h3 class="rock-font text-xl text-purple-300">Nitrógeno</h3>
+                                    <p class="metal-font text-xs text-purple-300 font-bold">"El Rey del Bajo Profundo"</p>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                                    Forma enlaces triples muy potentes ($N_2$) y participa en aminas y bases nitrogenadas con orbitales híbridos $sp^3$ y pares libres.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-purple-900/60 flex items-center justify-between gap-2">
+                                <a href="https://iupac.org/nitrogen/" target="_blank" rel="noopener noreferrer" class="touch-btn bg-purple-500 hover:bg-purple-400 text-black text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> IUPAC
+                                </a>
+                                <button onclick="openModal('modal-elem-n')" class="touch-btn bg-purple-700 hover:bg-purple-600 text-white text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info"></i> Ficha
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 4: OXÍGENO -->
+                        <div class="carousel-card min-w-[280px] sm:min-w-[320px] md:min-w-[340px] bg-slate-950 rounded-xl border border-red-500/40 p-4 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-bold text-red-400 bg-red-950/80 px-2.5 py-1 rounded-md border border-red-500/30">Z = 8 | Masa: 15.999</span>
+                                    <span class="rock-font text-pink-400 text-sm">Bloque p</span>
+                                </div>
+                                <div class="text-center my-2">
+                                    <div class="w-16 h-16 mx-auto bg-red-500/20 border-2 border-red-400 rounded-2xl flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(239,68,68,0.4)]">
+                                        <span class="metal-font text-3xl font-black text-red-300">O</span>
+                                    </div>
+                                    <h3 class="rock-font text-xl text-red-300">Oxígeno</h3>
+                                    <p class="metal-font text-xs text-purple-300 font-bold">"La Diva Vocal Electronegativa"</p>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                                    Acapara electrones con gran fuerza. En la molécula de agua ($H_2O$) adopta hibridación $sp^3$ con una geometría angular inolvidable.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-purple-900/60 flex items-center justify-between gap-2">
+                                <a href="https://pubchem.ncbi.nlm.nih.gov/element/Oxygen" target="_blank" rel="noopener noreferrer" class="touch-btn bg-red-500 hover:bg-red-400 text-black text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> PubChem
+                                </a>
+                                <button onclick="openModal('modal-elem-o')" class="touch-btn bg-purple-700 hover:bg-purple-600 text-white text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info"></i> Ficha
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 5: FÓSFORO -->
+                        <div class="carousel-card min-w-[280px] sm:min-w-[320px] md:min-w-[340px] bg-slate-950 rounded-xl border border-emerald-500/40 p-4 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">Z = 15 | Masa: 30.974</span>
+                                    <span class="rock-font text-pink-400 text-sm">Bloque p</span>
+                                </div>
+                                <div class="text-center my-2">
+                                    <div class="w-16 h-16 mx-auto bg-emerald-500/20 border-2 border-emerald-400 rounded-2xl flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+                                        <span class="metal-font text-3xl font-black text-emerald-300">P</span>
+                                    </div>
+                                    <h3 class="rock-font text-xl text-emerald-300">Fósforo</h3>
+                                    <p class="metal-font text-xs text-purple-300 font-bold">"El Baterista Pesado del Octeto Expandido"</p>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                                    Accede a los orbitales $d$ vacíos para formar hibridación $sp^3d$, logrando 5 enlaces covalentes como en el $PCl_5$.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-purple-900/60 flex items-center justify-between gap-2">
+                                <a href="https://pubchem.ncbi.nlm.nih.gov/element/Phosphorus" target="_blank" rel="noopener noreferrer" class="touch-btn bg-emerald-500 hover:bg-emerald-400 text-black text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> PubChem
+                                </a>
+                                <button onclick="openModal('modal-elem-p')" class="touch-btn bg-purple-700 hover:bg-purple-600 text-white text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info"></i> Ficha
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- TARJETA 6: AZUFRE -->
+                        <div class="carousel-card min-w-[280px] sm:min-w-[320px] md:min-w-[340px] bg-slate-950 rounded-xl border border-cyan-500/40 p-4 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-xs font-bold text-cyan-400 bg-cyan-950/80 px-2.5 py-1 rounded-md border border-cyan-500/30">Z = 16 | Masa: 32.06</span>
+                                    <span class="rock-font text-pink-400 text-sm">Bloque p</span>
+                                </div>
+                                <div class="text-center my-2">
+                                    <div class="w-16 h-16 mx-auto bg-cyan-500/20 border-2 border-cyan-400 rounded-2xl flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                                        <span class="metal-font text-3xl font-black text-cyan-300">S</span>
+                                    </div>
+                                    <h3 class="rock-font text-xl text-cyan-300">Azufre</h3>
+                                    <p class="metal-font text-xs text-purple-300 font-bold">"El Guitarrista Solista Octaédrico"</p>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                                    Alcanza la hibridación $sp^3d^2$ con 6 orbitales hipervalentes apuntando hacia los vértices de un octaedro perfecto ($SF_6$).
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-purple-900/60 flex items-center justify-between gap-2">
+                                <a href="https://pubchem.ncbi.nlm.nih.gov/element/Sulfur" target="_blank" rel="noopener noreferrer" class="touch-btn bg-cyan-500 hover:bg-cyan-400 text-black text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> PubChem
+                                </a>
+                                <button onclick="openModal('modal-elem-s')" class="touch-btn bg-purple-700 hover:bg-purple-600 text-white text-xs px-3 py-2 rounded-lg font-bold transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-circle-info"></i> Ficha
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Indicadores de posición del carrusel -->
+                <div id="carouselDots" class="flex justify-center gap-2 mt-4">
+                    <!-- Javascript añadirá los puntos dinámicamente -->
+                </div>
+            </section>
+
+            <!-- SECCIÓN 1: TABLA PERIÓDICA CON SCROLL Y ZOOM ADAPTATIVO -->
+            <section class="mb-10 sm:mb-14">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 sm:mb-6">
+                    <div class="flex items-center gap-2.5 sm:gap-3">
+                        <i class="fa-solid fa-guitar text-pink-500 text-xl sm:text-2xl md:text-3xl shrink-0"></i>
+                        <h2 class="metal-font heading-clamp text-purple-200 font-bold">1. El Line-Up: Tabla Periódica</h2>
+                    </div>
+                    <button onclick="openModal('modal-tabla')" class="touch-btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 active:scale-95 text-white font-bold px-4 py-2.5 rounded-lg text-xs md:text-sm border border-purple-300/40 transition shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
+                        <i class="fa-solid fa-book-open"></i> Info & Bibliografía Tabla
+                    </button>
+                </div>
+
+                <div class="bg-slate-900/90 rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-purple-800/50 shadow-inner">
+                    <p class="text-slate-300 text-xs sm:text-sm md:text-base mb-4">
+                        Alineación de los artistas químicos listos para fusionar sus estilos en la tarima orbital (desliza horizontalmente en móviles para explorar la imagen completa):
+                    </p>
+                    
+                    <div class="relative overflow-x-auto custom-scrollbar rounded-xl border border-purple-500/40 bg-slate-950 p-2 sm:p-4">
+                        <div class="min-w-[650px] lg:min-w-full">
+                            <svg class="w-full h-auto" viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#2e0854;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#090d16;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#bgGrad)" rx="10"/>
+                                
+                                <text x="400" y="32" text-anchor="middle" fill="#f3e8ff" font-family="Orbitron" font-weight="bold" font-size="16">TABLA PERIÓDICA DE LOS MÚSICOS QUÍMICOS</text>
+                                
+                                <g transform="translate(40, 50)">
+                                    <rect x="0" y="0" width="70" height="200" fill="#a855f7" opacity="0.3" rx="5"/>
+                                    <text x="35" y="100" fill="#e9d5ff" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90, 35, 100)">BLOQUE S (Vocalistas)</text>
+                                </g>
+                                <g transform="translate(130, 100)">
+                                    <rect x="0" y="0" width="300" height="150" fill="#ec4899" opacity="0.25" rx="5"/>
+                                    <text x="150" y="80" fill="#fbcfe8" font-size="13" font-weight="bold" text-anchor="middle">BLOQUE D (Heavy Metal)</text>
+                                </g>
+                                <g transform="translate(450, 50)">
+                                    <rect x="0" y="0" width="220" height="200" fill="#3b82f6" opacity="0.3" rx="5"/>
+                                    <text x="110" y="100" fill="#bfdbfe" font-size="11" font-weight="bold" text-anchor="middle" transform="rotate(-90, 110, 100)">BLOQUE P (Estrellas Covalentes)</text>
+                                </g>
+
+                                <g transform="translate(50, 60)">
+                                    <rect width="42" height="42" fill="#ec4899" rx="6" stroke="#f472b6" stroke-width="2"/>
+                                    <text x="21" y="26" fill="#fff" font-family="Orbitron" font-size="16" font-weight="bold" text-anchor="middle">H</text>
+                                </g>
+                                <g transform="translate(470, 110)">
+                                    <rect width="45" height="45" fill="#eab308" rx="6" stroke="#fde047" stroke-width="2"/>
+                                    <text x="22.5" y="27" fill="#000" font-family="Orbitron" font-size="18" font-weight="bold" text-anchor="middle">C</text>
+                                    <text x="22.5" y="39" fill="#422006" font-size="7" font-weight="bold" text-anchor="middle">REY HÍBRIDO</text>
+                                </g>
+                                <g transform="translate(520, 110)">
+                                    <rect width="45" height="45" fill="#8b5cf6" rx="6" stroke="#c084fc" stroke-width="2"/>
+                                    <text x="22.5" y="27" fill="#fff" font-family="Orbitron" font-size="18" font-weight="bold" text-anchor="middle">N</text>
+                                </g>
+                                <g transform="translate(570, 110)">
+                                    <rect width="45" height="45" fill="#ef4444" rx="6" stroke="#f87171" stroke-width="2"/>
+                                    <text x="22.5" y="27" fill="#fff" font-family="Orbitron" font-size="18" font-weight="bold" text-anchor="middle">O</text>
+                                </g>
+                                <g transform="translate(520, 160)">
+                                    <rect width="45" height="45" fill="#10b981" rx="6" stroke="#34d399" stroke-width="2"/>
+                                    <text x="22.5" y="27" fill="#fff" font-family="Orbitron" font-size="18" font-weight="bold" text-anchor="middle">P</text>
+                                </g>
+                                <g transform="translate(570, 160)">
+                                    <rect width="45" height="45" fill="#06b6d4" rx="6" stroke="#22d3ee" stroke-width="2"/>
+                                    <text x="22.5" y="27" fill="#fff" font-family="Orbitron" font-size="18" font-weight="bold" text-anchor="middle">S</text>
+                                </g>
+
+                                <g transform="translate(130, 270)">
+                                    <rect x="0" y="0" width="540" height="55" fill="#14b8a6" opacity="0.25" rx="5"/>
+                                    <text x="270" y="32" fill="#99f6e4" font-size="12" font-weight="bold" text-anchor="middle">BLOQUE F (Underground / Lantánidos & Actínidos)</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="p-2 sm:p-3 bg-purple-950/80 text-center text-[11px] sm:text-xs text-purple-200 mt-2 rounded-lg flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-arrows-left-right text-yellow-400 text-xs sm:hidden"></i>
+                            <span>Desliza para ver todos los bloques atómicos ($s, p, d, f$).</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: ANALOGÍA MUSICAL Y CONCEPTO -->
+            <section class="mb-10 sm:mb-14">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 sm:mb-6">
+                    <div class="flex items-center gap-2.5 sm:gap-3">
+                        <i class="fa-solid fa-record-vinyl text-yellow-400 text-xl sm:text-2xl md:text-3xl shrink-0"></i>
+                        <h2 class="metal-font heading-clamp text-purple-200 font-bold">2. ¿Qué es la Hibridación?</h2>
+                    </div>
+                    <button onclick="openModal('modal-concepto')" class="touch-btn bg-gradient-to-r from-amber-500 to-purple-600 hover:from-amber-400 hover:to-purple-500 active:scale-95 text-black font-extrabold px-4 py-2.5 rounded-lg text-xs md:text-sm shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto">
+                        <i class="fa-solid fa-graduation-cap text-base"></i> Teoría & Bibliografía
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-950/70 via-slate-900 to-slate-950 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-purple-500/40 shadow-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                        <div class="space-y-3 bg-purple-950/50 p-4 sm:p-5 rounded-xl border border-purple-800/40">
+                            <h3 class="rock-font text-lg sm:text-2xl text-pink-400 flex items-center gap-2">
+                                <i class="fa-solid fa-microphone-lines text-yellow-400"></i> ¡Los Orbitales son Músicos!
+                            </h3>
+                            <p class="text-slate-300 leading-relaxed text-xs sm:text-sm md:text-base">
+                                El orbital <strong class="text-yellow-300">"s"</strong> es un solista esférico de voz uniforme. Los orbitales <strong class="text-pink-300">"p"</strong> son guitarristas estrella con ritmo direccionado en Forma de 8.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed text-xs sm:text-sm md:text-base">
+                                Para dar un gran concierto (enlace covalente), hacen un **"Mashup o Hibridación"**: mezclan sus estilos para crear **NUEVOS orbitales híbridos** de idéntica energía y forma.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 bg-purple-950/50 p-4 sm:p-5 rounded-xl border border-purple-800/40">
+                            <h3 class="rock-font text-lg sm:text-2xl text-yellow-400 flex items-center gap-2">
+                                <i class="fa-solid fa-users-line text-pink-400"></i> ¡Los Electrones son Fans!
+                            </h3>
+                            <p class="text-slate-300 leading-relaxed text-xs sm:text-sm md:text-base">
+                                Los **Electrones** son la fanaticada eufórica. ¡No soportan estar apretujados! Cada par busca su propio espacio VIP libre de empujones alrededor del escenario principal.
+                            </p>
+                            <div class="bg-slate-950/90 p-3 sm:p-4 rounded-lg border-l-4 border-yellow-400 shadow-inner">
+                                <p class="text-[11px] sm:text-xs md:text-sm text-yellow-200 italic">
+                                    <i class="fa-solid fa-quote-left text-yellow-400 mr-1.5"></i>
+                                    "Para evitar repulsiones electrostáticas (Modelo VSEPR), los orbitales se separan con ángulos máximos (180°, 120°, 109.5°). ¡Así nace la geometría molecular!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: LAS 5 HIBRIDACIONES / CONCIERTOS -->
+            <section class="mb-10 sm:mb-14">
+                <div class="flex items-center gap-2.5 sm:gap-3 mb-6 sm:mb-8">
+                    <i class="fa-solid fa-compact-disc text-pink-400 text-xl sm:text-2xl md:text-3xl shrink-0"></i>
+                    <h2 class="metal-font heading-clamp text-purple-200 font-bold">3. Tour de las 5 Hibridaciones Épicas</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
+
+                    <!-- EJEMPLO 1: sp -->
+                    <div class="poster-card bg-slate-900 rounded-2xl overflow-hidden border-2 border-purple-600/60 flex flex-col justify-between shadow-xl">
+                        <div>
+                            <div class="relative bg-gradient-to-b from-purple-900 to-slate-950 p-3.5 sm:p-4 text-center border-b border-purple-500/40">
+                                <span class="absolute top-2.5 right-2.5 bg-yellow-400 text-black text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-full shadow">180°</span>
+                                <h3 class="metal-font text-lg sm:text-xl text-yellow-300 font-black">1. Hibridación sp</h3>
+                                <p class="rock-font text-pink-400 text-base sm:text-lg">Acetileno (C₂H₂)</p>
+                            </div>
+                            
+                            <div class="p-3 sm:p-4 bg-slate-950 flex justify-center">
+                                <svg class="w-full h-36 sm:h-40 rounded-lg bg-purple-950/40 border border-purple-800/40" viewBox="0 0 200 120">
+                                    <line x1="20" y1="60" x2="180" y2="60" stroke="#a855f7" stroke-width="4" stroke-dasharray="2,2"/>
+                                    <circle cx="70" cy="60" r="16" fill="#ec4899"/>
+                                    <text x="70" y="65" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">C</text>
+                                    <circle cx="130" cy="60" r="16" fill="#ec4899"/>
+                                    <text x="130" y="65" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">C</text>
+                                    <circle cx="20" cy="60" r="10" fill="#38bdf8"/>
+                                    <text x="20" y="63" fill="#000" font-size="9" font-weight="bold" text-anchor="middle">H</text>
+                                    <circle cx="180" cy="60" r="10" fill="#38bdf8"/>
+                                    <text x="180" y="63" fill="#000" font-size="9" font-weight="bold" text-anchor="middle">H</text>
+                                    <line x1="86" y1="54" x2="114" y2="54" stroke="#facc15" stroke-width="2"/>
+                                    <line x1="86" y1="60" x2="114" y2="60" stroke="#facc15" stroke-width="2"/>
+                                    <line x1="86" y1="66" x2="114" y2="66" stroke="#facc15" stroke-width="2"/>
+                                </svg>
+                            </div>
+
+                            <div class="p-3.5 sm:p-4 space-y-1.5 text-xs sm:text-sm text-slate-300">
+                                <p><strong class="text-purple-300">Geometría:</strong> Lineal (180°)</p>
+                                <p><strong class="text-purple-300">Banda:</strong> 1 's' + 1 'p'</p>
+                                <p class="text-slate-400 italic">"Duelo cara a cara. Triple enlace frontal de alta potencia."</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border-t border-purple-800/40 flex items-center justify-between gap-2">
+                            <span class="text-[11px] sm:text-xs text-yellow-300 font-bold">Gira Lineal</span>
+                            <button onclick="openModal('modal-sp')" class="touch-btn bg-purple-600 hover:bg-purple-500 text-white text-xs px-3.5 py-2 rounded-lg font-bold transition flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-circle-info"></i> Info & Citas
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- EJEMPLO 2: sp2 -->
+                    <div class="poster-card bg-slate-900 rounded-2xl overflow-hidden border-2 border-purple-600/60 flex flex-col justify-between shadow-xl">
+                        <div>
+                            <div class="relative bg-gradient-to-b from-purple-900 to-slate-950 p-3.5 sm:p-4 text-center border-b border-purple-500/40">
+                                <span class="absolute top-2.5 right-2.5 bg-yellow-400 text-black text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-full shadow">120°</span>
+                                <h3 class="metal-font text-lg sm:text-xl text-yellow-300 font-black">2. Hibridación sp²</h3>
+                                <p class="rock-font text-pink-400 text-base sm:text-lg">Etileno (C₂H₄)</p>
+                            </div>
+
+                            <div class="p-3 sm:p-4 bg-slate-950 flex justify-center">
+                                <svg class="w-full h-36 sm:h-40 rounded-lg bg-purple-950/40 border border-purple-800/40" viewBox="0 0 200 120">
+                                    <circle cx="100" cy="60" r="16" fill="#ec4899"/>
+                                    <text x="100" y="65" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">C</text>
+                                    <line x1="100" y1="44" x2="100" y2="15" stroke="#a855f7" stroke-width="3"/>
+                                    <line x1="86" y1="68" x2="50" y2="95" stroke="#a855f7" stroke-width="3"/>
+                                    <line x1="114" y1="68" x2="150" y2="95" stroke="#a855f7" stroke-width="3"/>
+                                    <circle cx="100" cy="15" r="9" fill="#38bdf8"/>
+                                    <circle cx="50" cy="95" r="9" fill="#38bdf8"/>
+                                    <circle cx="150" cy="95" r="9" fill="#38bdf8"/>
+                                </svg>
+                            </div>
+
+                            <div class="p-3.5 sm:p-4 space-y-1.5 text-xs sm:text-sm text-slate-300">
+                                <p><strong class="text-purple-300">Geometría:</strong> Trigonal Plana (120°)</p>
+                                <p><strong class="text-purple-300">Banda:</strong> 1 's' + 2 'p' (Trío armónico)</p>
+                                <p class="text-slate-400 italic">"Tres altavoces repartidos en un mismo plano."</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border-t border-purple-800/40 flex items-center justify-between gap-2">
+                            <span class="text-[11px] sm:text-xs text-yellow-300 font-bold">Fest Trigonal</span>
+                            <button onclick="openModal('modal-sp2')" class="touch-btn bg-purple-600 hover:bg-purple-500 text-white text-xs px-3.5 py-2 rounded-lg font-bold transition flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-circle-info"></i> Info & Citas
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- EJEMPLO 3: sp3 -->
+                    <div class="poster-card bg-slate-900 rounded-2xl overflow-hidden border-2 border-purple-600/60 flex flex-col justify-between shadow-xl">
+                        <div>
+                            <div class="relative bg-gradient-to-b from-purple-900 to-slate-950 p-3.5 sm:p-4 text-center border-b border-purple-500/40">
+                                <span class="absolute top-2.5 right-2.5 bg-yellow-400 text-black text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-full shadow">109.5°</span>
+                                <h3 class="metal-font text-lg sm:text-xl text-yellow-300 font-black">3. Hibridación sp³</h3>
+                                <p class="rock-font text-pink-400 text-base sm:text-lg">Metano (CH₄)</p>
+                            </div>
+
+                            <div class="p-3 sm:p-4 bg-slate-950 flex justify-center">
+                                <svg class="w-full h-36 sm:h-40 rounded-lg bg-purple-950/40 border border-purple-800/40" viewBox="0 0 200 120">
+                                    <line x1="100" y1="55" x2="100" y2="15" stroke="#eab308" stroke-width="3"/>
+                                    <line x1="100" y1="55" x2="50" y2="90" stroke="#eab308" stroke-width="3"/>
+                                    <line x1="100" y1="55" x2="125" y2="100" stroke="#eab308" stroke-width="5"/>
+                                    <line x1="100" y1="55" x2="155" y2="80" stroke="#eab308" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <circle cx="100" cy="55" r="16" fill="#eab308"/>
+                                    <text x="100" y="60" fill="#000" font-size="12" font-weight="bold" text-anchor="middle">C</text>
+                                    <circle cx="100" cy="15" r="9" fill="#38bdf8"/>
+                                    <circle cx="50" cy="90" r="9" fill="#38bdf8"/>
+                                    <circle cx="125" cy="100" r="11" fill="#38bdf8"/>
+                                    <circle cx="155" cy="80" r="8" fill="#38bdf8"/>
+                                </svg>
+                            </div>
+
+                            <div class="p-3.5 sm:p-4 space-y-1.5 text-xs sm:text-sm text-slate-300">
+                                <p><strong class="text-purple-300">Geometría:</strong> Tetraédrica (109.5°)</p>
+                                <p><strong class="text-purple-300">Banda:</strong> 1 's' + 3 'p' (Cuarteto 3D)</p>
+                                <p class="text-slate-400 italic">"Torres de sonido envolvente hacia las esquinas."</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border-t border-purple-800/40 flex items-center justify-between gap-2">
+                            <span class="text-[11px] sm:text-xs text-yellow-300 font-bold">Slam 3D</span>
+                            <button onclick="openModal('modal-sp3')" class="touch-btn bg-purple-600 hover:bg-purple-500 text-white text-xs px-3.5 py-2 rounded-lg font-bold transition flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-circle-info"></i> Info & Citas
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- EJEMPLO 4: sp3d -->
+                    <div class="poster-card bg-slate-900 rounded-2xl overflow-hidden border-2 border-purple-600/60 flex flex-col justify-between shadow-xl">
+                        <div>
+                            <div class="relative bg-gradient-to-b from-purple-900 to-slate-950 p-3.5 sm:p-4 text-center border-b border-purple-500/40">
+                                <span class="absolute top-2.5 right-2.5 bg-yellow-400 text-black text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-full shadow">90°/120°</span>
+                                <h3 class="metal-font text-lg sm:text-xl text-yellow-300 font-black">4. Hibridación sp³d</h3>
+                                <p class="rock-font text-pink-400 text-base sm:text-lg">Pentacloruro (PCl₅)</p>
+                            </div>
+
+                            <div class="p-3 sm:p-4 bg-slate-950 flex justify-center">
+                                <svg class="w-full h-36 sm:h-40 rounded-lg bg-purple-950/40 border border-purple-800/40" viewBox="0 0 200 120">
+                                    <circle cx="100" cy="60" r="15" fill="#10b981"/>
+                                    <text x="100" y="65" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">P</text>
+                                    <line x1="100" y1="15" x2="100" y2="105" stroke="#34d399" stroke-width="2"/>
+                                    <line x1="45" y1="60" x2="155" y2="60" stroke="#34d399" stroke-width="2"/>
+                                    <line x1="100" y1="60" x2="70" y2="85" stroke="#34d399" stroke-width="3"/>
+                                    <circle cx="100" cy="15" r="8" fill="#a3e635"/>
+                                    <circle cx="100" cy="105" r="8" fill="#a3e635"/>
+                                    <circle cx="45" cy="60" r="8" fill="#a3e635"/>
+                                    <circle cx="155" cy="60" r="8" fill="#a3e635"/>
+                                    <circle cx="70" cy="85" r="9" fill="#a3e635"/>
+                                </svg>
+                            </div>
+
+                            <div class="p-3.5 sm:p-4 space-y-1.5 text-xs sm:text-sm text-slate-300">
+                                <p><strong class="text-purple-300">Geometría:</strong> Bipirámide Trigonal</p>
+                                <p><strong class="text-purple-300">Banda:</strong> 1 's' + 3 'p' + 1 'd'</p>
+                                <p class="text-slate-400 italic">"3 músicos en pista y 2 en torres elevadas."</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border-t border-purple-800/40 flex items-center justify-between gap-2">
+                            <span class="text-[11px] sm:text-xs text-yellow-300 font-bold">Bipirámide</span>
+                            <button onclick="openModal('modal-sp3d')" class="touch-btn bg-purple-600 hover:bg-purple-500 text-white text-xs px-3.5 py-2 rounded-lg font-bold transition flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-circle-info"></i> Info & Citas
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- EJEMPLO 5: sp3d2 -->
+                    <div class="poster-card bg-slate-900 rounded-2xl overflow-hidden border-2 border-purple-600/60 flex flex-col justify-between shadow-xl sm:col-span-2 lg:col-span-1">
+                        <div>
+                            <div class="relative bg-gradient-to-b from-purple-900 to-slate-950 p-3.5 sm:p-4 text-center border-b border-purple-500/40">
+                                <span class="absolute top-2.5 right-2.5 bg-yellow-400 text-black text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-full shadow">90°</span>
+                                <h3 class="metal-font text-lg sm:text-xl text-yellow-300 font-black">5. Hibridación sp³d²</h3>
+                                <p class="rock-font text-pink-400 text-base sm:text-lg">Hexafluoruro (SF₆)</p>
+                            </div>
+
+                            <div class="p-3 sm:p-4 bg-slate-950 flex justify-center">
+                                <svg class="w-full h-36 sm:h-40 rounded-lg bg-purple-950/40 border border-purple-800/40" viewBox="0 0 200 120">
+                                    <circle cx="100" cy="60" r="16" fill="#06b6d4"/>
+                                    <text x="100" y="65" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">S</text>
+                                    <line x1="100" y1="12" x2="100" y2="108" stroke="#22d3ee" stroke-width="2"/>
+                                    <line x1="50" y1="60" x2="150" y2="60" stroke="#22d3ee" stroke-width="2"/>
+                                    <line x1="70" y1="35" x2="130" y2="85" stroke="#22d3ee" stroke-width="2"/>
+                                    <circle cx="100" cy="12" r="7" fill="#f43f5e"/>
+                                    <circle cx="100" cy="108" r="7" fill="#f43f5e"/>
+                                    <circle cx="50" cy="60" r="7" fill="#f43f5e"/>
+                                    <circle cx="155" cy="60" r="7" fill="#f43f5e"/>
+                                    <circle cx="70" cy="35" r="7" fill="#f43f5e"/>
+                                    <circle cx="130" cy="85" r="7" fill="#f43f5e"/>
+                                </svg>
+                            </div>
+
+                            <div class="p-3.5 sm:p-4 space-y-1.5 text-xs sm:text-sm text-slate-300">
+                                <p><strong class="text-purple-300">Geometría:</strong> Octaédrica (90°)</p>
+                                <p><strong class="text-purple-300">Banda:</strong> 1 's' + 3 'p' + 2 'd'</p>
+                                <p class="text-slate-400 italic">"Escenografía 3D simétrica perfecta en 6 ejes."</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-purple-950/80 border-t border-purple-800/40 flex items-center justify-between gap-2">
+                            <span class="text-[11px] sm:text-xs text-yellow-300 font-bold">Octaedro Fest</span>
+                            <button onclick="openModal('modal-sp3d2')" class="touch-btn bg-purple-600 hover:bg-purple-500 text-white text-xs px-3.5 py-2 rounded-lg font-bold transition flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-circle-info"></i> Info & Citas
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECCIÓN FOOTER Y BIBLIOGRAFÍA GENERAL -->
+            <section class="border-t-2 border-purple-800/60 pt-8 sm:pt-10 text-center">
+                <div class="bg-purple-950/60 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border border-purple-500/40 max-w-3xl mx-auto shadow-2xl">
+                    <h3 class="metal-font text-lg sm:text-2xl text-yellow-400 font-bold mb-2 sm:mb-3">
+                        <i class="fa-solid fa-books text-pink-400 mr-2"></i> BIBLIOGRAFÍA Y FUENTES ACADÉMICAS
+                    </h3>
+                    <p class="text-slate-300 text-xs sm:text-sm mb-5">
+                        Consulta la documentación científica completa y libros universitarios consultados en formato APA.
+                    </p>
+                    <button onclick="openModal('modal-bibliografia-completa')" class="touch-btn w-full sm:w-auto bg-gradient-to-r from-amber-400 via-pink-500 to-purple-600 text-slate-950 font-black px-6 py-3 rounded-xl text-xs sm:text-sm md:text-base hover:opacity-90 active:scale-95 transition shadow-xl flex items-center justify-center gap-2 mx-auto">
+                        <i class="fa-solid fa-file-lines text-base"></i> ABRIR BIBLIOGRAFÍA COMPLETA (APA)
+                    </button>
+                </div>
+
+                <footer class="mt-8 sm:mt-12 text-[11px] sm:text-xs text-slate-400 space-y-1.5">
+                    <p class="rock-font text-base sm:text-lg text-purple-300">EL EQUIPO KAMIKAZE TOUR 2026</p>
+                    <p>© Todos los derechos reservados. Divulgación Química Responsiva e Interactiva.</p>
+                </footer>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- MODALES DE ELEMENTOS INDIVIDUALES DEL CARRUSEL -->
+    <div id="modal-elem-c" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-amber-400 rounded-2xl w-full max-w-md p-5 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-elem-c')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-xl text-amber-400 font-bold mb-2">Ficha: Carbono (C)</h3>
+            <p class="text-xs text-slate-300 mb-2"><strong>Configuración Electrónica:</strong> $1s^2 2s^2 2p^2$</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Gracias a la promoción de un electrón del orbital $2s$ al $2p_z$, el carbono adquiere valencia 4, permitiéndole hibridarse en $sp^3, sp^2$ y $sp$.
+            </p>
+            <a href="https://pubchem.ncbi.nlm.nih.gov/element/Carbon" target="_blank" rel="noopener noreferrer" class="touch-btn bg-amber-400 text-black text-xs px-3 py-2 rounded-lg font-bold inline-flex items-center gap-2">
+                <i class="fa-solid fa-external-link"></i> Ver Registro Completo en PubChem
+            </a>
+        </div>
+    </div>
+
+    <div id="modal-elem-h" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-sky-400 rounded-2xl w-full max-w-md p-5 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-elem-h')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-xl text-sky-400 font-bold mb-2">Ficha: Hidrógeno (H)</h3>
+            <p class="text-xs text-slate-300 mb-2"><strong>Configuración Electrónica:</strong> $1s^1$</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                No sufre hibridación propia debido a que posee solo un orbital $1s$, pero se acopla perfectamente compartiendo su único electrón con los orbitales híbridos adyacentes.
+            </p>
+            <a href="https://pubchem.ncbi.nlm.nih.gov/element/Hydrogen" target="_blank" rel="noopener noreferrer" class="touch-btn bg-sky-400 text-black text-xs px-3 py-2 rounded-lg font-bold inline-flex items-center gap-2">
+                <i class="fa-solid fa-external-link"></i> Ver Registro Completo en PubChem
+            </a>
+        </div>
+    </div>
+
+    <div id="modal-elem-n" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-400 rounded-2xl w-full max-w-md p-5 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-elem-n')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-xl text-purple-400 font-bold mb-2">Ficha: Nitrógeno (N)</h3>
+            <p class="text-xs text-slate-300 mb-2"><strong>Configuración Electrónica:</strong> $1s^2 2s^2 2p^3$</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                En moléculas como el Amoniaco ($NH_3$), se hibrida en $sp^3$, guardando un par de electrones no enlazantes en uno de sus cuatro lóbulos.
+            </p>
+            <a href="https://iupac.org/nitrogen/" target="_blank" rel="noopener noreferrer" class="touch-btn bg-purple-400 text-black text-xs px-3 py-2 rounded-lg font-bold inline-flex items-center gap-2">
+                <i class="fa-solid fa-external-link"></i> Ficha Oficial IUPAC
+            </a>
+        </div>
+    </div>
+
+    <div id="modal-elem-o" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-red-400 rounded-2xl w-full max-w-md p-5 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-elem-o')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-xl text-red-400 font-bold mb-2">Ficha: Oxígeno (O)</h3>
+            <p class="text-xs text-slate-300 mb-2"><strong>Configuración Electrónica:</strong> $1s^2 2s^2 2p^4$</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                En el agua ($H_2O$), adopta hibridación $sp^3$ con 2 pares solitarios que reducen el ángulo de enlace de 109.5° a 104.5°.
+            </p>
+            <a href="https://pubchem.ncbi.nlm.nih.gov/element/Oxygen" target="_blank" rel="noopener noreferrer" class="touch-btn bg-red-400 text-black text-xs px-3 py-2 rounded-lg font-bold inline-flex items-center gap-2">
+                <i class="fa-solid fa-external-link"></i> Ver Registro Completo en PubChem
+            </a>
+        </div>
+    </div>
+
+    <div id="modal-elem-p" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-emerald-400 rounded-2xl w-full max-w-md p-5 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-elem-p')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-xl text-emerald-400 font-bold mb-2">Ficha: Fósforo (P)</h3>
+            <p class="text-xs text-slate-300 mb-2"><strong>Configuración Electrónica:</strong> $[Ne] 3s^2 3p^3$</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Elemento del tercer período capaz de expandir su capa de valencia utilizando orbitales $3d$, formando hibridaciones de 5 lóbulos ($sp^3d$).
+            </p>
+            <a href="https://pubchem.ncbi.nlm.nih.gov/element/Phosphorus" target="_blank" rel="noopener noreferrer" class="touch-btn bg-emerald-400 text-black text-xs px-3 py-2 rounded-lg font-bold inline-flex items-center gap-2">
+                <i class="fa-solid fa-external-link"></i> Ver Registro Completo en PubChem
+            </a>
+        </div>
+    </div>
+
+    <div id="modal-elem-s" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-cyan-400 rounded-2xl w-full max-w-md p-5 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-elem-s')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-xl text-cyan-400 font-bold mb-2">Ficha: Azufre (S)</h3>
+            <p class="text-xs text-slate-300 mb-2"><strong>Configuración Electrónica:</strong> $[Ne] 3s^2 3p^4$</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Su hipervalencia le permite albergar hasta 12 electrones de valencia en la hibridación octaédrica $sp^3d^2$ ($SF_6$).
+            </p>
+            <a href="https://pubchem.ncbi.nlm.nih.gov/element/Sulfur" target="_blank" rel="noopener noreferrer" class="touch-btn bg-cyan-400 text-black text-xs px-3 py-2 rounded-lg font-bold inline-flex items-center gap-2">
+                <i class="fa-solid fa-external-link"></i> Ver Registro Completo en PubChem
+            </a>
+        </div>
+    </div>
+
+    <!-- MODAL TABLA PERIÓDICA -->
+    <div id="modal-tabla" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-500 rounded-2xl w-full max-w-2xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-tabla')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-base sm:text-xl text-yellow-400 font-bold mb-3 pr-8 flex items-center gap-2">
+                <i class="fa-solid fa-table text-purple-400"></i> Tabla Periódica & Configuración
+            </h3>
+            <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+                <p><strong>Detalles Científicos:</strong> La tabla periódica organiza los elementos según sus números atómicos ($Z$) y configuraciones electrónicas. Los bloques $s, p, d, f$ representan los subniveles donde residen los electrones de valencia antes de hibridarse.</p>
+                <div class="bg-slate-950 p-3 sm:p-4 rounded-lg border border-purple-800/80">
+                    <h4 class="font-bold text-pink-400 mb-1.5">Referencias Bibliográficas (APA):</h4>
+                    <ul class="list-disc pl-4 space-y-1 text-[11px] sm:text-xs text-slate-400">
+                        <li>Chang, R., & Goldsby, K. A. (2017). <em>Química</em> (12a. ed.). McGraw-Hill Education.</li>
+                        <li>Brown, T. L., LeMay, H. E., Bursten, B. E., & Murphy, C. J. (2014). <em>Química: La ciencia central</em> (12a. ed.). Pearson Educación.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONCEPTO TEÓRICO -->
+    <div id="modal-concepto" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-500 rounded-2xl w-full max-w-2xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-concepto')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-base sm:text-xl text-yellow-400 font-bold mb-3 pr-8 flex items-center gap-2">
+                <i class="fa-solid fa-atom text-pink-400"></i> Teoría de Hibridación de Pauling
+            </h3>
+            <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+                <p><strong>Explicación Científica:</strong> Formulada por Linus Pauling en 1931. Consiste en la combinación matemática de las funciones de onda de orbitales atómicos puros ($s, p, d$) para producir orbitales híbridos equivalentes.</p>
+                <p><strong>Modelo VSEPR / RPECV:</strong> La repulsión de los pares de electrones dicta la orientación geométrica en 3D para minimizar la energía molecular.</p>
+                <div class="bg-slate-950 p-3 sm:p-4 rounded-lg border border-purple-800/80">
+                    <h4 class="font-bold text-pink-400 mb-1.5">Referencias Bibliográficas:</h4>
+                    <ul class="list-disc pl-4 space-y-1 text-[11px] sm:text-xs text-slate-400">
+                        <li>Pauling, L. (1931). The nature of the chemical bond. <em>J. Am. Chem. Soc.</em>, 53(4), 1367-1400.</li>
+                        <li>McMurry, J. (2018). <em>Química Orgánica</em> (9a. ed.). Cengage Learning.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALES HIBRIDACIONES INDIVIDUALES -->
+    <div id="modal-sp" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-500 rounded-2xl w-full max-w-xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-sp')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-base sm:text-xl text-yellow-400 font-bold mb-2">Hibridación sp - Acetileno</h3>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <p>• <strong>Geometría:</strong> Lineal con ángulo de 180°.</p>
+                <p>• <strong>Composición:</strong> 50% carácter $s$ y 50% carácter $p$.</p>
+                <p>• <strong>Enlaces:</strong> 2 enlaces sigma ($\sigma$) y 2 enlaces pi ($\pi$) puros.</p>
+                <div class="bg-slate-950 p-3 rounded border border-purple-800/80 mt-2">
+                    <p class="font-bold text-purple-300 text-[11px] sm:text-xs">Fuente APA:</p>
+                    <p class="text-slate-400 text-[11px] sm:text-xs">Wade, L. G. (2017). <em>Química Orgánica</em> (9a. ed.). Pearson Educación.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sp2" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-500 rounded-2xl w-full max-w-xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-sp2')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-base sm:text-xl text-yellow-400 font-bold mb-2">Hibridación sp² - Etileno</h3>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <p>• <strong>Geometría:</strong> Trigonal Plana con ángulo de 120°.</p>
+                <p>• <strong>Composición:</strong> 33.3% carácter $s$ y 66.7% carácter $p$.</p>
+                <p>• <strong>Enlaces:</strong> 3 enlaces sigma ($\sigma$) y 1 enlace pi ($\pi$) perpendicular.</p>
+                <div class="bg-slate-950 p-3 rounded border border-purple-800/80 mt-2">
+                    <p class="font-bold text-purple-300 text-[11px] sm:text-xs">Fuente APA:</p>
+                    <p class="text-slate-400 text-[11px] sm:text-xs">Carey, F. A., & Giuliano, R. M. (2014). <em>Química Orgánica</em> (9a. ed.). McGraw-Hill.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sp3" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-500 rounded-2xl w-full max-w-xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-sp3')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-base sm:text-xl text-yellow-400 font-bold mb-2">Hibridación sp³ - Metano</h3>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <p>• <strong>Geometría:</strong> Tetraédrica con ángulo de 109.5°.</p>
+                <p>• <strong>Composición:</strong> 25% carácter $s$ y 75% carácter $p$.</p>
+                <p>• <strong>Enlaces:</strong> 4 enlaces sigma ($\sigma$) equivalentes dirigidos en 3D.</p>
+                <div class="bg-slate-950 p-3 rounded border border-purple-800/80 mt-2">
+                    <p class="font-bold text-purple-300 text-[11px] sm:text-xs">Fuente APA:</p>
+                    <p class="text-slate-400 text-[11px] sm:text-xs">Solomons, T. W. G., Fryhle, C. B., & Snyder, S. A. (2016). <em>Organic Chemistry</em> (12th ed.). Wiley.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sp3d" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-500 rounded-2xl w-full max-w-xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-sp3d')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-base sm:text-xl text-yellow-400 font-bold mb-2">Hibridación sp³d - Pentacloruro</h3>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <p>• <strong>Geometría:</strong> Bipirámide Trigonal (ángulos de 90° y 120°).</p>
+                <p>• <strong>Octeto Expandido:</strong> Participación del subnivel $3d$ (elementos del período 3+).</p>
+                <div class="bg-slate-950 p-3 rounded border border-purple-800/80 mt-2">
+                    <p class="font-bold text-purple-300 text-[11px] sm:text-xs">Fuente APA:</p>
+                    <p class="text-slate-400 text-[11px] sm:text-xs">Miessler, G. L., Fischer, P. J., & Tarr, D. A. (2014). <em>Inorganic Chemistry</em> (5th ed.). Pearson.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sp3d2" class="modal fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-purple-500 rounded-2xl w-full max-w-xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-sp3d2')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-base sm:text-xl text-yellow-400 font-bold mb-2">Hibridación sp³d² - Hexafluoruro</h3>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-300">
+                <p>• <strong>Geometría:</strong> Octaédrica (ángulos de 90° entre adyacentes).</p>
+                <p>• <strong>Estructura:</strong> 6 enlaces sigma ($\sigma$) simétricos dirigidos a los vértices de un octaedro.</p>
+                <div class="bg-slate-950 p-3 rounded border border-purple-800/80 mt-2">
+                    <p class="font-bold text-purple-300 text-[11px] sm:text-xs">Fuente APA:</p>
+                    <p class="text-slate-400 text-[11px] sm:text-xs">Atkins, P., & de Paula, J. (2014). <em>Physical Chemistry</em> (10th ed.). Oxford University Press.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL BIBLIOGRAFÍA COMPLETA -->
+    <div id="modal-bibliografia-completa" class="modal fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-6 opacity-0 invisible">
+        <div class="bg-slate-900 border-2 border-amber-400 rounded-2xl w-full max-w-3xl p-4 sm:p-6 text-left relative max-h-[85vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <button onclick="closeModal('modal-bibliografia-completa')" class="touch-btn absolute top-3 right-3 text-slate-400 hover:text-white text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="metal-font text-lg sm:text-2xl text-yellow-400 font-bold mb-3 pr-8 flex items-center gap-2 border-b border-amber-500/40 pb-2.5">
+                <i class="fa-solid fa-book-bookmark text-pink-400"></i> BIBLIOGRAFÍA ACADÉMICA COMPLETA
+            </h3>
+            
+            <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+                <div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-purple-800/60">
+                    <p class="font-bold text-purple-300 mb-1">1. Química General y Teórica</p>
+                    <p class="pl-3 text-slate-400">Chang, R., & Goldsby, K. A. (2017). <em>Química</em> (12a. ed.). McGraw-Hill Education.</p>
+                    <p class="pl-3 text-slate-400 mt-1">Brown, T. L., LeMay, H. E., Bursten, B. E., & Murphy, C. J. (2014). <em>Química: La ciencia central</em> (12a. ed.). Pearson Educación.</p>
+                </div>
+
+                <div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-purple-800/60">
+                    <p class="font-bold text-purple-300 mb-1">2. Química Orgánica y Enlace Covalente</p>
+                    <p class="pl-3 text-slate-400">McMurry, J. (2018). <em>Química Orgánica</em> (9a. ed.). Cengage Learning.</p>
+                    <p class="pl-3 text-slate-400 mt-1">Wade, L. G. (2017). <em>Química Orgánica</em> (9a. ed.). Pearson Educación México.</p>
+                    <p class="pl-3 text-slate-400 mt-1">Carey, F. A., & Giuliano, R. M. (2014). <em>Química Orgánica</em> (9a. ed.). McGraw-Hill.</p>
+                </div>
+
+                <div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-purple-800/60">
+                    <p class="font-bold text-purple-300 mb-1">3. Química Inorgánica y Fisicoquímica</p>
+                    <p class="pl-3 text-slate-400">Miessler, G. L., Fischer, P. J., & Tarr, D. A. (2014). <em>Inorganic Chemistry</em> (5th ed.). Pearson Prentice Hall.</p>
+                    <p class="pl-3 text-slate-400 mt-1">Atkins, P., & de Paula, J. (2014). <em>Physical Chemistry</em> (10th ed.). Oxford University Press.</p>
+                </div>
+
+                <div class="bg-slate-950 p-3 sm:p-4 rounded-xl border border-purple-800/60">
+                    <p class="font-bold text-purple-300 mb-1">4. Publicación Seminal</p>
+                    <p class="pl-3 text-slate-400">Pauling, L. (1931). The nature of the chemical bond. <em>Journal of the American Chemical Society</em>, 53(4), 1367-1400. https://doi.org/10.1021/ja01355a027</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LÓGICA DEL CARRUSEL Y MODALES EN JAVASCRIPT -->
+    <script>
+        let currentCarouselIndex = 0;
+        const track = document.getElementById('carouselTrack');
+        const cards = document.querySelectorAll('.carousel-card');
+        const dotsContainer = document.getElementById('carouselDots');
+        let autoPlayTimer = null;
+
+        // Crear puntos indicadores del carrusel
+        function initCarouselDots() {
+            dotsContainer.innerHTML = '';
+            cards.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${idx === currentCarouselIndex ? 'bg-amber-400 w-6' : 'bg-purple-900 hover:bg-purple-600'}`;
+                dot.onclick = () => goToSlide(idx);
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateCarousel() {
+            if (!cards.length) return;
+            const cardWidth = cards[0].offsetWidth + 16; // ancho + gap
+            track.style.transform = `translateX(-${currentCarouselIndex * cardWidth}px)`;
+            
+            // Actualizar estado de botones e indicadores
+            const dots = dotsContainer.children;
+            Array.from(dots).forEach((dot, idx) => {
+                if (idx === currentCarouselIndex) {
+                    dot.className = 'w-6 h-3 rounded-full bg-amber-400 transition-all duration-300';
+                } else {
+                    dot.className = 'w-3 h-3 rounded-full bg-purple-900 hover:bg-purple-600 transition-all duration-300';
+                }
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentCarouselIndex += direction;
+            if (currentCarouselIndex < 0) {
+                currentCarouselIndex = cards.length - 1;
+            } else if (currentCarouselIndex >= cards.length) {
+                currentCarouselIndex = 0;
+            }
+            updateCarousel();
+            restartAutoPlay();
+        }
+
+        function goToSlide(index) {
+            currentCarouselIndex = index;
+            updateCarousel();
+            restartAutoPlay();
+        }
+
+        function startAutoPlay() {
+            autoPlayTimer = setInterval(() => {
+                moveCarousel(1);
+            }, 4500);
+        }
+
+        function restartAutoPlay() {
+            clearInterval(autoPlayTimer);
+            startAutoPlay();
+        }
+
+        // Soporte para gestos táctiles (Swipe) en celulares
+        let startX = 0;
+        let isDragging = false;
+
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            if (Math.abs(diffX) > 40) {
+                if (diffX > 0) {
+                    moveCarousel(1);
+                } else {
+                    moveCarousel(-1);
+                }
+            }
+            isDragging = false;
+        }, { passive: true });
+
+        // Modales
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('modal-active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('modal-active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('modal-active');
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-active').forEach(modal => {
+                    modal.classList.remove('modal-active');
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            updateCarousel();
+        });
+
+        // Inicialización al cargar la ventana
+        window.onload = function() {
+            initCarouselDots();
+            updateCarousel();
+            startAutoPlay();
+        };
+    </script>
+</body>
+</html>
